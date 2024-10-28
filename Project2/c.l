@@ -98,8 +98,8 @@ int comm_beg = 0; /* line number for beginning of comment */
 
  /* cutting out white space */
  /* ..................... */
-[[:blank:]]+  {}
-[ \n\t]+ {}
+[[:blank:]]  {}
+[ \n\t] {}
 
  /* multicharacter operators, e.g. ++ */ 
  /* ..................... */
@@ -124,6 +124,9 @@ int comm_beg = 0; /* line number for beginning of comment */
 "["   { return process_token(yytext, "[", "", '['); }
 "]"   { return process_token(yytext, "]", "", ']'); }
 "<"   { return process_token(yytext, "<", "", '<'); }
+">"   { return process_token(yytext, ">", "", '>'); }
+"?"   { return process_token(yytext, "?", "", '?'); }
+":"   { return process_token(yytext, ":", "", ':'); }
 
 %%
 
